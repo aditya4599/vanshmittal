@@ -14,7 +14,7 @@ export const contact = {
   phone: "(812) 822-7926",
   phoneHref: "tel:+18128227926",
   /** Not in the résumé or repo — add the real URL before sharing. */
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/vamitt/",
 };
 
 export const nav = [

@@ -10,7 +10,7 @@ Add a LinkedIn URL to `contact.linkedin` before sharing if you want the nav and 
 
 Research card `href` fields are empty until published URLs are available.
 
-## Develop
+## Developa
 
 ```bash
 npm run dev
