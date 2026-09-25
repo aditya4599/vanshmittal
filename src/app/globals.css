@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f4efe6;
+  --bg-raised: #fbf7f0;
+  --ink: #161513;
+  --muted: #6a655c;
+  --navy: #1c2c4a;
+  --navy-soft: #2a3d5c;
+  --line: #ddd4c6;
+  --green: #3e5a46;
+  --green-soft: #e7eee8;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+  --color-line: var(--line);
+  --color-green: var(--green);
+  --color-green-soft: var(--green-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-instrument);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .hero-rule,
+  .sparkline-path {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: #dbe3d8;
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+.site-shell {
+  width: min(1200px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .site-shell {
+    width: min(1200px, calc(100% - 4rem));
+  }
+}
+
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size 180ms ease;
+}
+
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+}
+
+.reveal {
+  animation: fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.sparkline-path {
+  stroke-dasharray: 240;
+  animation: draw-line 1.6s ease forwards;
+}
+
+.hero-rule {
+  transform-origin: left;
+  animation: grow-x 900ms ease both;
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.card-arrow {
+  transition: transform 180ms ease;
+}
+
+a:hover .card-arrow,
+button:hover .card-arrow,
+article:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+.beyond-card {
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+.beyond-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--navy);
+  background: var(--bg-raised);
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
